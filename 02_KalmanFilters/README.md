@@ -15,3 +15,6 @@ Update function is used to update the mean and variance when new gaussian is fou
 Kalman_Filter function updates the mean and variance over multiple measuremnets using these equations.
 
 ![equations](equations.png)
+
+Equations for Update function.
+![equations_update](equations_update.png)
