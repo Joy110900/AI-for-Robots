@@ -144,9 +144,9 @@ class matrix:
 
 # Implement the filter function below
 
-def kalman_filter(x, P):
+def filter(x, P):
     for n in range(len(measurements)):
-        
+
         # measurement update
         Z = matrix([[measurements[n]]])
         y = Z - H.__mul__(x)                #z - H.x
@@ -155,11 +155,15 @@ def kalman_filter(x, P):
         K = K.__mul__(S.inverse())
         x = x.__add__(K.__mul__(y))
         P = (I.__sub__(K.__mul__(H))).__mul__(P)
+        
         # prediction
         x = (F.__mul__(x)).__add__(u)
         P = F.__mul__(P.__mul__(F.transpose()))
-        
-    return x,P
+    
+    print('x: ')
+    print(x)
+    print('P: ') 
+    print(P)
 
 ############################################
 ### use the code below to test your filter!
@@ -175,7 +179,8 @@ H = matrix([[1., 0.]]) # measurement function
 R = matrix([[1.]]) # measurement uncertainty
 I = matrix([[1., 0.], [0., 1.]]) # identity matrix
 
-print(kalman_filter(x, P))
+
+filter(x, P)
 # output should be:
 # x: [[3.9996664447958645], [0.9999998335552873]]
 # P: [[2.3318904241194827, 0.9991676099921091], [0.9991676099921067, 0.49950058263974184]]
