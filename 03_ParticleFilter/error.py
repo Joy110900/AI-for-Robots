@@ -75,7 +75,7 @@ class robot:
         
         # calculates how likely a measurement should be
         
-        prob = 1.0;
+        prob = 1.0
         for i in range(len(landmarks)):
             dist = sqrt((self.x - landmarks[i][0]) ** 2 + (self.y - landmarks[i][1]) ** 2)
             prob *= self.Gaussian(dist, self.sense_noise, measurement[i])
@@ -141,7 +141,7 @@ for t in range(T):
         p3.append(p[index])
     p = p3
     
-    print(eval(myrobot, p))
+    print(eval(myrobot, p)) #calculate error
     
     #enter code here, make sure that you output 10 print statements.
  
